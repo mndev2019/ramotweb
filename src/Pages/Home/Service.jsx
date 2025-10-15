@@ -17,9 +17,9 @@ const Service = () => {
     { image: gws, text: "Google Services" },
     { image: ui, text: "UI/UX Designing" },
     { image: datam, text: "Data Migration",  link: "/data-migration" },
-    { image: web, text: "Web Developer"},
-    { image: app, text: "App Development" },
-    { image: software, text: "Software solutions" },
+    { image: web, text: "Web Developer", link:"/web-development"},
+    { image: app, text: "App Development" , link:"/app-development" },
+    { image: software, text: "Software solutions" , link:"/software-solutions"},
     { image: crm, text: "CRM Services" },
   ]
 
