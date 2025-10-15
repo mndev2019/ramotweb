@@ -23,7 +23,7 @@ const Expert = () => {
         autoplay: true,
         speed: 600,
         autoplaySpeed: 2500,
-        slidesToShow: 2,
+        slidesToShow: 1,
         slidesToScroll: 1,
         responsive: [
             {
@@ -54,7 +54,7 @@ const Expert = () => {
                         <Slider {...sliderSettings}>
                             {services.map((item, index) => (
                                 <div key={index} className="px-2">
-                                    <div className="flex items-center gap-3 bg-white rounded-lg shadow hover:shadow-md transition p-3">
+                                    <div className="flex items-center gap-3 bg-white rounded-lg shadow hover:shadow-md transition p-3 justify-center">
                                         <span className="flex-shrink-0 w-7 h-7 flex items-center justify-center bg-purple-200 text-purple-800 rounded-full font-bold">
                                             ✓
                                         </span>
