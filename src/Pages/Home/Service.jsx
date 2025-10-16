@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import Heading from '../../Component/Heading'
 import digital from '../../assets/Images/digitalM.jpg'
 import gws from '../../assets/Images/gws.jpg'
@@ -9,18 +9,23 @@ import app from '../../assets/Images/app.jpg'
 import software from '../../assets/Images/software.jpg'
 import crm from '../../assets/Images/crm.jpg'
 import { useNavigate } from 'react-router-dom'
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 
 const Service = () => {
+  useEffect(() => {
+    AOS.init({ duration: 1000 });
+  }, []);
   const navigate = useNavigate();
   const data = [
-    { image: digital, text: "Digital Marketing", link:"/digital-marketing"  },
-    { image: gws, text: "Google Services" },
-    { image: ui, text: "UI/UX Designing" },
-    { image: datam, text: "Data Migration",  link: "/data-migration" },
-    { image: web, text: "Web Developer", link:"/web-development"},
-    { image: app, text: "App Development" , link:"/app-development" },
-    { image: software, text: "Software solutions" , link:"/software-solutions"},
-    { image: crm, text: "CRM Services" },
+    { image: digital, text: "Digital Marketing", link: "/digital-marketing" },
+    { image: gws, text: "Google Services", link: "/google-service" },
+    { image: ui, text: "UI/UX Designing", link: "uiux-designing" },
+    { image: datam, text: "Data Migration", link: "/data-migration" },
+    { image: web, text: "Web Developer", link: "/web-development" },
+    { image: app, text: "App Development", link: "/app-development" },
+    { image: software, text: "Software solutions", link: "/software-solutions" },
+    { image: crm, text: "CRM Services", link: "/crm-services" },
   ]
 
   return (
@@ -51,6 +56,7 @@ const Service = () => {
             onClick={() => navigate(item.link)}
             key={index}
             className="group bg-white rounded-xl shadow-md hover:shadow-xl transition-all duration-300 overflow-hidden border border-gray-100 hover:border-[var(--primary)]"
+            data-aos="zoom-in"
           >
             <div className="overflow-hidden">
               <img

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import drips from "../../assets/Images/drips.jpg";
 import carta from "../../assets/Images/carta.jpg";
 import barter from "../../assets/Images/barter.jpg";
@@ -8,20 +8,25 @@ import uba from "../../assets/Images/uba.jpg";
 import verifi from "../../assets/Images/erifi.jpg";
 import thrive from "../../assets/Images/thrive.jpg";
 import alphacx from "../../assets/Images/aplha.jpg";
-import rsgroup from '../../assets/Images/rsgroup.png'
+import rsgroup from '../../assets/Images/rsgroup.png';
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 
-const logos = [drips, carta, barter, ipnx, bet9ja, uba, verifi, thrive, alphacx , rsgroup];
+const logos = [drips, carta, barter, ipnx, bet9ja, uba, verifi, thrive, alphacx, rsgroup];
 
 const Team = () => {
-    return (
-         <section className="relative bg-gradient-to-br from-white via-[var(--primary)]/10 to-white py-16 px-6 md:px-20 overflow-hidden">
+  useEffect(() => {
+    AOS.init({ duration: 1000 });
+  }, []);
+  return (
+    <section className="relative bg-gradient-to-br from-white via-[var(--primary)]/10 to-white py-16 px-6 md:px-20 overflow-hidden">
       {/* Top Text */}
       <p className="text-center text-[14px] font-semibold text-[var(--primary)] tracking-widest uppercase mb-3">
         More than 100+ teams are using Ramot
       </p>
 
       {/* Heading */}
-      <h2 className="text-center text-3xl md:text-4xl font-bold mb-10">
+      <h2 className="text-center text-3xl md:text-4xl font-bold mb-10" data-aos="flip-left">
         Trusted by{" "}
         <span className="bg-gradient-to-r from-[var(--primary)] to-yellow-500 bg-clip-text text-transparent">
           worldwide business
@@ -35,6 +40,7 @@ const Team = () => {
           <div
             key={index}
             className="relative flex items-center justify-center bg-white rounded-full p-4 group hover:scale-110 transition-transform duration-300"
+
             style={{ animation: `fadeUp 0.6s ease ${index * 0.1}s both` }}
           >
             {/* Glowing border effect */}
@@ -66,7 +72,7 @@ const Team = () => {
         }
       `}</style>
     </section>
-    );
+  );
 };
 
 export default Team;

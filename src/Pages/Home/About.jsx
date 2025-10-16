@@ -1,8 +1,13 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import Heading from '../../Component/Heading';
 import aboutImg from '../../assets/Images/about.png'; // replace with your actual image
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 
 const About = () => {
+    useEffect(() => {
+      AOS.init({ duration: 1000 });
+    }, []);
   return (
     <section className="relative px-6 lg:px-16 py-10 overflow-hidden">
       {/* 🌈 Background Gradient */}
@@ -22,7 +27,7 @@ const About = () => {
         {/* Grid Layout */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           {/* Left - Illustration */}
-          <div className="flex justify-center lg:justify-start">
+          <div className="flex justify-center lg:justify-start" data-aos="flip-left">
             <img
               src={aboutImg}
               alt="About illustration"

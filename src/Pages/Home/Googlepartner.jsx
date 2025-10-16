@@ -1,8 +1,13 @@
-import React from "react";
+import React, { useEffect } from "react";
 import google from "../../assets/Images/googlepartner.png";
 import { useNavigate } from "react-router-dom";
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 
 const Googlepartner = () => {
+  useEffect(() => {
+    AOS.init({ duration: 1000 });
+  }, []);
   const navigate = useNavigate();
   return (
     <section className="relative py-16 px-6 md:px-16 bg-gradient-to-b from-[#f5f7fa] to-[#e6ecf3]">
@@ -18,7 +23,7 @@ const Googlepartner = () => {
       </div>
 
       {/* Content */}
-      <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-10 items-center bg-white p-8 rounded-2xl shadow-lg hover:shadow-2xl transition-shadow duration-300">
+      <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-10 items-center bg-white p-8 rounded-2xl shadow-lg hover:shadow-2xl transition-shadow duration-300" data-aos="zoom-in-left">
         {/* Image */}
         <div className="flex justify-center">
           <img
@@ -38,7 +43,7 @@ const Googlepartner = () => {
             Drive, Docs, Meet, and more — all backed by the security and
             reliability of Google Cloud.
           </p>
-          <button className="mt-4 bg-[#1E2E45] text-white px-6 py-3 rounded-full text-[16px] font-medium hover:bg-[#253b5c] transition-colors duration-300" onClick={()=> navigate('/contact')}>
+          <button className="mt-4 bg-[#1E2E45] text-white px-6 py-3 rounded-full text-[16px] font-medium hover:bg-[#253b5c] transition-colors duration-300" onClick={() => navigate('/contact')}>
             Learn More
           </button>
         </div>

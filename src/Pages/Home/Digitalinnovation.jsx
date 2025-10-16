@@ -1,5 +1,7 @@
 import React, { useEffect, useRef, useState } from "react";
 import digitalinnovation from '../../assets/Images/digitalinnovation.png'
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 
 const skills = [
     { title: "Web Development", percent: 95 },
@@ -9,6 +11,9 @@ const skills = [
 ];
 
 const Digitalinnovation = () => {
+    useEffect(() => {
+        AOS.init({ duration: 1000 });
+    }, []);
     const sectionRef = useRef(null);
     const [visible, setVisible] = useState(false);
 
@@ -76,7 +81,7 @@ const Digitalinnovation = () => {
                 </div>
 
                 {/* RIGHT ILLUSTRATION */}
-                <div className="flex justify-center">
+                <div className="flex justify-center" data-aos="flip-right">
                     <img
                         src={digitalinnovation}
                         alt="Illustration"

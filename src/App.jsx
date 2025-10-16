@@ -9,6 +9,9 @@ import DigitalMarketing from './Pages/Services/DigitalMarketing'
 import WebDevelopment from './Pages/Services/WebDevelopment'
 import SoftwareSolutions from './Pages/Services/SoftwareSolutions'
 import AppDevelopment from './Pages/Services/AppDevelopment'
+import GoogleService from './Pages/Services/GoogleService'
+import UiUxDesigning from './Pages/Services/UiUxDesigning'
+import CrmService from './Pages/Services/CrmService.jsx'
 
 function App() {
   const ThemeRoute = createBrowserRouter(
@@ -21,8 +24,11 @@ function App() {
           <Route path='/data-migration' element={<DataMigration />} />
           <Route path='/digital-marketing' element={<DigitalMarketing />} />
           <Route path='/web-development' element={<WebDevelopment />} />
-          <Route path='/software-solutions' element={<SoftwareSolutions/>}/>
-          <Route path='/app-development' element={<AppDevelopment/>}/>
+          <Route path='/software-solutions' element={<SoftwareSolutions />} />
+          <Route path='/app-development' element={<AppDevelopment />} />
+          <Route path='/google-service' element={<GoogleService />} />
+          <Route path='/uiux-designing' element={<UiUxDesigning/>}/>
+          <Route path='/crm-services' element={<CrmService/>}/>
         </Route>
 
 
