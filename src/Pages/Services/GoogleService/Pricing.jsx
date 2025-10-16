@@ -95,7 +95,7 @@ const Pricing = () => {
                                     <p className="text-sm text-gray-600 mb-4">
                                         per user per month, one-year commitment
                                     </p>
-                                    <button onClick={() => setshowpopup(true)} className="w-full bg-[#7f2ef8] text-white py-2 rounded-md font-semibold hover:bg-[#6920d4] transition">
+                                    <button onClick={() => setshowpopup(true)} className="w-full bg-[#7f2ef8] text-white py-2 rounded-md font-semibold hover:bg-[#6920d4] transition cursor-pointer">
                                         Start Free Trial
                                     </button>
                                 </div>
