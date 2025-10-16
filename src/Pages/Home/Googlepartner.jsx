@@ -13,10 +13,10 @@ const Googlepartner = () => {
     <section className="relative py-16 px-6 md:px-16 bg-gradient-to-b from-[#f5f7fa] to-[#e6ecf3]">
       {/* Heading */}
       <div className="text-center mb-10">
-        <h4 className="text-[32px] md:text-[40px] font-light uppercase tracking-[10px] text-[#555]">
+        <h4 className="text-[32px] md:text-[32px] font-light uppercase tracking-[5px] text-[#555]">
           Google Cloud Partner
         </h4>
-        <h2 className="text-[#1E2E45] text-[36px] md:text-[50px] font-semibold mt-2">
+        <h2 className="text-[#1E2E45] text-[36px] md:text-[40px] font-semibold mt-2">
           Official Google Cloud Seller
         </h2>
         <div className="w-24 h-[3px] bg-[#1E2E45] mx-auto mt-4 rounded-full"></div>

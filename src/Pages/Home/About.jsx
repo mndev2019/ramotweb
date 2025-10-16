@@ -3,11 +3,13 @@ import Heading from '../../Component/Heading';
 import aboutImg from '../../assets/Images/about.png'; // replace with your actual image
 import AOS from 'aos';
 import 'aos/dist/aos.css';
+import { useNavigate } from 'react-router-dom';
 
 const About = () => {
-    useEffect(() => {
-      AOS.init({ duration: 1000 });
-    }, []);
+  const navigate = useNavigate();
+  useEffect(() => {
+    AOS.init({ duration: 1000 });
+  }, []);
   return (
     <section className="relative px-6 lg:px-16 py-10 overflow-hidden">
       {/* 🌈 Background Gradient */}
@@ -38,7 +40,7 @@ const About = () => {
           {/* Right - Content */}
           <div>
             <p className=' text-[var(--primary)] font-semibold'>
-            RAMOT IT SERVICES
+              RAMOT IT SERVICES
             </p>
             <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-4 leading-snug">
               Your partner for <br />
@@ -61,7 +63,7 @@ const About = () => {
                 keep you ahead in a fast-changing digital world.
               </p>
               <p className="mt-2 font-semibold text-gray-900">
-                 Jahnavi Singh{' '}
+                Jahnavi Singh{' '}
                 <span className="text-purple-600 font-normal text-sm">
                   | Co founder and Sales Director
                 </span>
@@ -70,7 +72,7 @@ const About = () => {
 
             {/* Bottom Features */}
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 mt-8">
-              <div className="flex items-center gap-3 bg-white/70 backdrop-blur-sm p-4 rounded-lg shadow-sm hover:shadow-md transition">
+              <div className="flex items-center gap-3 bg-white/70 backdrop-blur-sm p-4 rounded-lg shadow-sm hover:shadow-md transition cursor-pointer" onClick={()=> navigate('/app-development')}>
                 <div className="text-purple-600 text-2xl">🌐</div>
                 <div>
                   <h4 className="font-semibold text-gray-900">
@@ -78,7 +80,7 @@ const About = () => {
                   </h4>
                 </div>
               </div>
-              <div className="flex items-center gap-3 bg-white/70 backdrop-blur-sm p-4 rounded-lg shadow-sm hover:shadow-md transition">
+              <div className="flex items-center gap-3 bg-white/70 backdrop-blur-sm p-4 rounded-lg shadow-sm hover:shadow-md transition cursor-pointer" onClick={()=> navigate('/google-service')}>
                 <div className="text-purple-600 text-2xl">⚙️</div>
                 <div>
                   <h4 className="font-semibold text-gray-900">

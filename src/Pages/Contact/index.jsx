@@ -43,7 +43,7 @@ const Contact = () => {
                             </a>
                             <a
                                 href="tel:+919211047996"
-                                   // ✅ Opens default email client
+                                // ✅ Opens default email client
                                 className="block text-[14px] text-center text-gray-600 mt-1 hover:text-[#7f2ef8] transition-colors"
                             >
                                 +(91) 9211047996
@@ -57,7 +57,10 @@ const Contact = () => {
                     </a>
 
                     {/* Office Card */}
-                    <a href="" className="col-span-1">
+                    <a href="https://www.google.com/maps/place/Ramot+IT+Services/@28.6059694,77.3580135,16z/data=!3m1!4b1!4m6!3m5!1s0x6d240512f6b17353:0x2ce7e0f87fa303ae!8m2!3d28.6059694!4d77.3580135!16s%2Fg%2F11xt_l4868?entry=ttu&g_ep=EgoyMDI1MTAxMy4wIKXMDSoASAFQAw%3D%3D"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="col-span-1">
                         <div className="w-full h-full shadow-lg p-6 rounded-xl relative overflow-hidden group transition-transform duration-300 hover:scale-105 bg-white">
                             <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-[#7f2ef8] via-[#9b5fff] to-[#b084f9] rounded-t-xl animate-gradient-x"></div>
 
@@ -77,16 +80,16 @@ const Contact = () => {
                     </a>
 
                     {/* Whatsapp Card */}
-                    <a href="https://wa.me/919211047996"  target="_blank" className="col-span-1">
+                    <a href="https://wa.me/919211047996" target="_blank" className="col-span-1">
                         <div className="w-full h-full shadow-lg p-6 rounded-xl relative overflow-hidden group transition-transform duration-300 hover:scale-105 bg-white">
                             <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-[#7f2ef8] via-[#9b5fff] to-[#b084f9] rounded-t-xl animate-gradient-x"></div>
 
                             <div className="icon h-[60px] w-[60px] mx-auto flex items-center justify-center rounded-full bg-gradient-to-tr from-[#7f2ef8] to-[#9b5fff] text-white text-[30px] shadow-lg transition-all duration-300 group-hover:scale-110">
-                               <FaWhatsapp className='h-[25px]' />
+                                <FaWhatsapp className='h-[25px]' />
                             </div>
 
                             <h3 className="text-[20px] font-bold text-center mt-4 text-[#12062c] group-hover:text-[#7f2ef8] transition-all">
-                                 WhatsApp
+                                WhatsApp
                             </h3>
                             <p className="text-[14px] text-center text-gray-600 mt-1">+(91) 9211047996</p>
                             <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-16 h-1 rounded-full bg-gradient-to-r from-[#7f2ef8] via-[#9b5fff] to-[#b084f9] group-hover:w-24 transition-all duration-500"></div>
