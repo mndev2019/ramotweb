@@ -13,6 +13,8 @@ import GoogleService from './Pages/Services/GoogleService'
 import UiUxDesigning from './Pages/Services/UiUxDesigning'
 import CrmService from './Pages/Services/CrmService.jsx'
 
+import ThankYou from './Pages/Contact/Thankyou.jsx'
+
 function App() {
   const ThemeRoute = createBrowserRouter(
     createRoutesFromElements(
@@ -29,6 +31,7 @@ function App() {
           <Route path='/google-service' element={<GoogleService />} />
           <Route path='/uiux-designing' element={<UiUxDesigning/>}/>
           <Route path='/crm-services' element={<CrmService/>}/>
+          <Route path='/thank-you' element={<ThankYou/>}/>
         </Route>
 
 

@@ -161,10 +161,10 @@ const Footer = () => {
             </li>
             <li className="flex items-center gap-2">
               <MdLocationOn className="text-[var(--primary)]" />
-              <span className="cursor-pointer hover:text-[var(--primary)] transition">
+              <a href="https://www.google.com/maps/place/Ramot+IT+Services/@28.6059694,77.3580135,16z/data=!3m1!4b1!4m6!3m5!1s0x6d240512f6b17353:0x2ce7e0f87fa303ae!8m2!3d28.6059694!4d77.3580135!16s%2Fg%2F11xt_l4868?entry=ttu&g_ep=EgoyMDI1MTAxMy4wIKXMDSoASAFQAw%3D%3D" target="_blank" className="cursor-pointer hover:text-[var(--primary)] transition">
                 A100, A Block, Sector 58, Noida,<br />
                 Uttar Pradesh 201309 - 201309
-              </span>
+              </a>
             </li>
           </ul>
         </div>
