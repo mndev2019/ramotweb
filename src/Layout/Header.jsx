@@ -32,7 +32,7 @@ const Header = () => {
                             <a href="#" className="hover:text-white transition">Contact</a>
                         </div> */}
                         <div className="flex items-center gap-3">
-                            <a href="#" className="hover:text-white transition"><FaFacebookF/></a>
+                            <a href="#" className="hover:text-white transition"><FaFacebookF /></a>
                             <a href="#" className="hover:text-white transition"><FaInstagram /></a>
                             <a href="#" className="hover:text-white transition"><FaTwitter /></a>
                             <a href="#" className="hover:text-white transition"><FaPinterestP /></a>

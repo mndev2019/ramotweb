@@ -1,4 +1,4 @@
-import React, { useState} from "react";
+import React, { useState } from "react";
 
 const FreeTrialPopup = ({ isOpen, onClose }) => {
     const [isThankYouOpen, setIsThankYouOpen] = useState(false);
@@ -16,19 +16,38 @@ const FreeTrialPopup = ({ isOpen, onClose }) => {
         setFormData({ ...formData, [name]: value });
     };
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
-        console.log("Form Data:", formData);
-        setIsThankYouOpen(true); // show thank-you message
-        setFormData({
-            Name: "",
-            organizationName: "",
-            domain: "",
-            noOfUsers: "",
-            email: "",
-            contact: "",
+
+        const form = new FormData();
+        form.append("access_key", "a5dc50aa-d194-4bd9-a933-ef4e7da13165");
+
+        Object.keys(formData).forEach((key) => {
+            form.append(key, formData[key]);
         });
+
+        const res = await fetch("https://api.web3forms.com/submit", {
+            method: "POST",
+            body: form,
+        });
+
+        const result = await res.json();
+
+        if (result.success) {
+            setIsThankYouOpen(true);
+            setFormData({
+                Name: "",
+                organizationName: "",
+                domain: "",
+                noOfUsers: "",
+                email: "",
+                contact: "",
+            });
+        } else {
+            alert("Form submission failed! Try again.");
+        }
     };
+
 
     // Auto-close popup after 3 seconds when thank you is shown
     // useEffect(() => {
@@ -64,6 +83,8 @@ const FreeTrialPopup = ({ isOpen, onClose }) => {
                         </p>
 
                         <form onSubmit={handleSubmit} className="space-y-4">
+                            <input type="hidden" name="access_key" value="a5dc50aa-d194-4bd9-a933-ef4e7da13165" />
+
                             {[
                                 { name: "Name", placeholder: "Your Name", type: "text" },
                                 { name: "organizationName", placeholder: "Name of the Organisation", type: "text" },
