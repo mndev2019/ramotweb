@@ -1,9 +1,11 @@
 import React from 'react'
 import InnerBanner from '../../../Component/InnerBanner'
+import Seo from '../../../Seocomponent/Seo'
 
 const CrmService = () => {
   return (
     <>
+     <Seo title="CRM Services | Customer Relationship Management Solutions - Ramot" description="Manage your customers efficiently with our CRM solutions designed to improve sales, communication, and business growth." keywords="CRM services, customer relationship management, CRM software, sales automation, business CRM solutions" />
       <InnerBanner title="CRM" />
 
       {/* Coming Soon Section */}

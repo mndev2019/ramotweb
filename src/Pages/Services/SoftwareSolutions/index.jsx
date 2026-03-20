@@ -10,6 +10,7 @@ import {
 } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
 import Heading from "../../../Component/Heading";
+import Seo from "../../../Seocomponent/Seo";
 
 const services = [
     {
@@ -60,6 +61,7 @@ const SoftwareSolutions = () => {
     const navigate = useNavigate();
     return (
         <>
+              <Seo title="Custom Software Solutions | Business Automation & IT Services - Ramot" description="Get tailored software solutions to automate your business processes and improve efficiency with modern technology." keywords="software solutions, custom software development, business automation, IT solutions, enterprise software" />
             <InnerBanner title="Software Solutions" />
 
             {/* Intro Section */}

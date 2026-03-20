@@ -2,11 +2,13 @@ import React from 'react';
 import InnerBanner from '../../../Component/InnerBanner';
 import { useNavigate } from 'react-router-dom';
 import EndtoEndProcess from './EndtoEndProcess';
+import Seo from '../../../Seocomponent/Seo';
 
 const WebDevelopment = () => {
     const navigate = useNavigate();
     return (
         <>
+            <Seo title="Web Development Company | Custom & Responsive Websites - Ramot" description="Build powerful and responsive websites with our professional web development services tailored to your business needs." keywords="web development company, website development, responsive web design, custom website, frontend backend development" />
             <InnerBanner title="Web Development" />
 
             {/* Intro Section */}

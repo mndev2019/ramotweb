@@ -5,6 +5,7 @@ import { MdOutlineMarkEmailRead } from "react-icons/md";
 import { toast } from "react-toastify";
 import { Base_Url } from "../../API/Base_Url";
 import { useNavigate } from "react-router-dom";
+import Seo from "../../Seocomponent/Seo";
 
 const Contact = () => {
     const navigate = useNavigate();
@@ -88,6 +89,12 @@ const Contact = () => {
     // };
 
     return (
+        <>
+            <Seo
+                title="Contact Ramot – a trusted Google Workspace Partner"
+                description="Grow your business with Google Workspace, web development, CRM, and digital solutions."
+                url="https://ramot.cloud/"
+            />
         <section className='py-12 bg-gray-50'>
             <div className="container mx-auto lg:px-20 md:px-10 px-5">
 
@@ -249,6 +256,8 @@ const Contact = () => {
 
             </div>
         </section>
+        </>
+     
     );
 };
 

@@ -3,6 +3,7 @@ import InnerBanner from "../../../Component/InnerBanner";
 import { FaLightbulb, FaLaptopCode, FaUserFriends, FaPalette } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
 import Heading from "../../../Component/Heading";
+import Seo from "../../../Seocomponent/Seo";
 
 const UiUxDesigning = () => {
     const features = [
@@ -34,6 +35,7 @@ const UiUxDesigning = () => {
     const navigate = useNavigate();
     return (
         <>
+            <Seo title="UI/UX Design Services | Modern & User-Friendly Design Solutions - Ramot" description="Create engaging user experiences with our UI/UX design services focused on usability, creativity, and conversion optimization." keywords="UI UX design services, user interface design, user experience design, web design, app design" />
             {/* Top Banner */}
             <InnerBanner title="UI/UX Designing" />
             <section className="relative bg-gradient-to-br from-white via-[var(--primary)]/10 to-white py-16 px-6 md:px-20 overflow-hidden">
