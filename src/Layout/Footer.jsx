@@ -1,3 +1,4 @@
+import React from "react";
 import { FaAngleRight, FaArrowUp, FaGift, FaPhoneAlt } from "react-icons/fa";
 // import Logo from "../assets/Image/newlogo.jpeg";
 import logo from '../assets/Images/logoremovebg.png'
