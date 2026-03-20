@@ -1,4 +1,6 @@
 import React, { useState } from "react";
+import { Base_Url } from "../API/Base_Url";
+import { toast } from "react-toastify";
 
 const FreeTrialPopup = ({ isOpen, onClose }) => {
     const [isThankYouOpen, setIsThankYouOpen] = useState(false);
@@ -16,49 +18,85 @@ const FreeTrialPopup = ({ isOpen, onClose }) => {
         setFormData({ ...formData, [name]: value });
     };
 
-    const handleSubmit = async (e) => {
-        e.preventDefault();
+    // const handleSubmit = async (e) => {
+    //     e.preventDefault();
 
-        const form = new FormData();
-        form.append("access_key", "a5dc50aa-d194-4bd9-a933-ef4e7da13165");
+    //     const form = new FormData();
+    //     form.append("access_key", "a5dc50aa-d194-4bd9-a933-ef4e7da13165");
 
-        Object.keys(formData).forEach((key) => {
-            form.append(key, formData[key]);
-        });
+    //     Object.keys(formData).forEach((key) => {
+    //         form.append(key, formData[key]);
+    //     });
 
-        const res = await fetch("https://api.web3forms.com/submit", {
-            method: "POST",
-            body: form,
-        });
+    //     const res = await fetch("https://api.web3forms.com/submit", {
+    //         method: "POST",
+    //         body: form,
+    //     });
 
-        const result = await res.json();
+    //     const result = await res.json();
 
-        if (result.success) {
-            setIsThankYouOpen(true);
-            setFormData({
-                Name: "",
-                organizationName: "",
-                domain: "",
-                noOfUsers: "",
-                email: "",
-                contact: "",
-            });
-        } else {
-            alert("Form submission failed! Try again.");
-        }
-    };
-
-
-    // Auto-close popup after 3 seconds when thank you is shown
-    // useEffect(() => {
-    //     if (isThankYouOpen) {
-    //         const timer = setTimeout(() => {
-    //             setIsThankYouOpen(false);
-    //             onClose(); // close popup completely
-    //         }, 3000);
-    //         return () => clearTimeout(timer);
+    //     if (result.success) {
+    //         setIsThankYouOpen(true);
+    //         setFormData({
+    //             Name: "",
+    //             organizationName: "",
+    //             domain: "",
+    //             noOfUsers: "",
+    //             email: "",
+    //             contact: "",
+    //         });
+    //     } else {
+    //         alert("Form submission failed! Try again.");
     //     }
-    // }, [isThankYouOpen, onClose]);
+    // };
+
+
+  const handleSubmit = async (e) => {
+  e.preventDefault();
+
+  const requestData = {
+    name: formData.Name,
+    organisation: formData.organizationName,
+    domain: formData.domain,
+    users: formData.noOfUsers,
+    email: formData.email,
+    contactNo: formData.contact
+  };
+
+  try {
+    const res = await fetch(`${Base_Url}/google-service-enquiry`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify(requestData)
+    });
+
+    const result = await res.json();
+
+    if (result.success === true) {
+      toast.success(result.message);
+
+      setIsThankYouOpen(true);
+
+      setFormData({
+        Name: "",
+        organizationName: "",
+        domain: "",
+        noOfUsers: "",
+        email: "",
+        contact: ""
+      });
+
+    } else {
+      toast.error(result.message);
+    }
+
+  } catch (error) {
+    console.error(error);
+    toast.error("Something went wrong ❌");
+  }
+};
 
     if (!isOpen) return null;
 

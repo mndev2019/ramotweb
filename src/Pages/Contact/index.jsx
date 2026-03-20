@@ -2,33 +2,90 @@ import React, { useState } from "react";
 import { FaWhatsapp } from "react-icons/fa";
 import { IoLocationOutline } from "react-icons/io5";
 import { MdOutlineMarkEmailRead } from "react-icons/md";
+import { toast } from "react-toastify";
+import { Base_Url } from "../../API/Base_Url";
+import { useNavigate } from "react-router-dom";
 
 const Contact = () => {
-    const [result, setResult] = useState("");
-
-    const handleSubmit = async (event) => {
-        event.preventDefault();
-        setResult("Sending...");
-
-        const formData = new FormData(event.target);
-        formData.append("access_key", "6b07c88f-3f19-4a9a-acd2-0a39448dce9b"); // ✅ Add your Web3Forms access key
-
-        const response = await fetch("https://api.web3forms.com/submit", {
-            method: "POST",
-            body: formData,
+    const navigate = useNavigate();
+    // const [result, setResult] = useState("");
+    const [formData, setFormData] = useState({
+        name: "",
+        mobile: "",
+        email: "",
+        message: ""
+    });
+    const handleChange = (e) => {
+        setFormData({
+            ...formData,
+            [e.target.name]: e.target.value
         });
+    };
+    const handleSubmit = async (e) => {
+        e.preventDefault();
 
-        const data = await response.json();
+        const requestData = {
+            name: formData.name,
+            mobile: formData.mobile,
+            email: formData.email,
+            message: formData.message
+        };
 
-        if (data.success) {
-            setResult("Message sent successfully ✅");
-            event.target.reset(); // ✅ Reset form
-            window.location.href = "/thank-you"; // ✅ Redirect after submit
-        } else {
-            console.log("Error", data);
-            setResult(data.message);
+        try {
+            const response = await fetch(`${Base_Url}/contact-enquiry`, {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify(requestData)
+            });
+
+            const data = await response.json();
+
+            if (data.success === true) {
+                toast.success("Message sent successfully ✅");
+
+                setFormData({
+                    name: "",
+                    mobile: "",
+                    email: "",
+                    message: ""
+                });
+
+                navigate("/thank-you");
+            } else {
+                toast.error(data.message);
+            }
+
+        } catch (error) {
+            console.error(error);
+            toast.error("Something went wrong ❌");
         }
     };
+
+    // const handleSubmit = async (event) => {
+    //     event.preventDefault();
+    //     setResult("Sending...");
+
+    //     const formData = new FormData(event.target);
+    //     formData.append("access_key", "6b07c88f-3f19-4a9a-acd2-0a39448dce9b"); // ✅ Add your Web3Forms access key
+
+    //     const response = await fetch("https://api.web3forms.com/submit", {
+    //         method: "POST",
+    //         body: formData,
+    //     });
+
+    //     const data = await response.json();
+
+    //     if (data.success) {
+    //         setResult("Message sent successfully ✅");
+    //         event.target.reset(); // ✅ Reset form
+    //         window.location.href = "/thank-you"; // ✅ Redirect after submit
+    //     } else {
+    //         console.log("Error", data);
+    //         setResult(data.message);
+    //     }
+    // };
 
     return (
         <section className='py-12 bg-gray-50'>
@@ -141,6 +198,8 @@ const Contact = () => {
                         <input
                             type="text"
                             name="name"
+                            value={formData.name}
+                            onChange={handleChange}
                             placeholder="Your Name"
                             className="w-full p-3 mb-4 border border-gray-200 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-[#7f2ef8] transition"
                             required
@@ -149,6 +208,8 @@ const Contact = () => {
                         <input
                             type="text"
                             name="mobile"
+                            value={formData.mobile}
+                            onChange={handleChange}
                             placeholder="Mobile No"
                             className="w-full p-3 mb-4 border border-gray-200 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-[#7f2ef8] transition"
                             required
@@ -157,6 +218,8 @@ const Contact = () => {
                         <input
                             type="email"
                             name="email"
+                            value={formData.email}
+                            onChange={handleChange}
                             placeholder="Email"
                             className="w-full p-3 mb-4 border border-gray-200 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-[#7f2ef8] transition"
                             required
@@ -164,6 +227,8 @@ const Contact = () => {
 
                         <textarea
                             name="message"
+                            value={formData.message}
+                            onChange={handleChange}
                             placeholder="Message"
                             rows="6"
                             className="w-full p-3 mb-4 border border-gray-200 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-[#7f2ef8] transition resize-none"
@@ -172,12 +237,12 @@ const Contact = () => {
 
                         <button
                             type="submit"
-                            className="w-full py-3 text-white font-medium rounded-full bg-gradient-to-r from-[#7f2ef8] to-[#9b5fff] hover:from-[#9b5fff] hover:to-[#7f2ef8] transition-all duration-500"
+                            className="w-full py-3 text-white font-medium rounded-full bg-gradient-to-r from-[#7f2ef8] to-[#9b5fff] hover:from-[#9b5fff] hover:to-[#7f2ef8] transition-all duration-500 cursor-pointer"
                         >
                             Contact Us
                         </button>
 
-                        <p className="text-center text-sm text-gray-700 pt-2">{result}</p>
+                        {/* <p className="text-center text-sm text-gray-700 pt-2">{result}</p> */}
                     </form>
 
                 </div>

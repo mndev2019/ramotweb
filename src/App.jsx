@@ -1,5 +1,5 @@
 
-import { createBrowserRouter, createRoutesFromElements, Route, RouterProvider } from 'react-router-dom'
+import { createBrowserRouter, createRoutesFromElements, Route, RouterProvider, useLocation } from 'react-router-dom'
 import './App.css'
 import WebLayout from './Layout/WebLayout'
 import Home from './Pages/Home'
@@ -14,12 +14,37 @@ import UiUxDesigning from './Pages/Services/UiUxDesigning'
 import CrmService from './Pages/Services/CrmService.jsx'
 
 import ThankYou from './Pages/Contact/Thankyou.jsx'
+import { useEffect } from 'react'
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 function App() {
+  // --- 1. Create a Analytics Wrapper ---
+// This component listens for URL changes and sends them to Google
+function AnalyticsTracker() {
+  const location = useLocation();
+
+  useEffect(() => {
+    if (window.gtag) {
+      window.gtag('event', 'page_view', {
+        page_path: location.pathname + location.search,
+      });
+    }
+  }, [location]);
+
+  return null; // This component doesn't render anything
+}
   const ThemeRoute = createBrowserRouter(
     createRoutesFromElements(
       <>
-        <Route path="/" element={<WebLayout />}>
+        {/* <Route path="/" element={<WebLayout /> */}
+        <Route path="/" element={
+          <>
+            <AnalyticsTracker /> {/* Tracks every route change */}
+            <WebLayout />
+          </>
+      
+      }>
 
           <Route index element={<Home />} />
           <Route path='/contact' element={<Contact />} />
@@ -45,6 +70,7 @@ function App() {
   return (
     <>
       <RouterProvider router={ThemeRoute} />
+      <ToastContainer position="top-right" autoClose={3000} />
     </>
   )
 }
